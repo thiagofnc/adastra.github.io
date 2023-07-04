@@ -1,0 +1,423 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing:border-box;
+    font-family: 'poppins';
+    scroll-behavior: smooth;
+    user-select: none;
+}
+
+:root{
+    --background-color: #100b8c;
+    --btn-color: #4864ff;
+    --src: "sun-icon.png"
+}
+
+body{
+    background: linear-gradient(black, rgb(64, 64, 179));
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+header{
+    position: absolute;
+    top:0;
+    left: 0;
+    width: 100%;
+    padding: 30px 100px;
+    padding-right: 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 10000000000;
+
+}
+
+header .logo{
+    color: #ffff;
+    font-weight: 700;
+    text-decoration: none;
+    font-size: 2em;
+    letter-spacing: 2px;
+}
+
+header ul{
+    display: flex;
+    justify-content:center;
+    align-items: center;
+}
+
+header ul li{
+    list-style: none;
+    margin-left: 20px;
+}
+
+header ul li a{
+    text-decoration: none;
+    padding: 6px 15px;
+    color: #ffff;
+    border-radius: 20px;
+}
+
+header ul li a:hover, header ul li a.active {
+    background:#ffff;
+    color: black;
+}
+
+section{
+    position:relative;
+    width:100%;
+    height: 100vh;
+    padding: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+section::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 100px;
+    background: linear-gradient(to top, var(--background-color), transparent);
+    z-index: 100;
+  }
+  
+section.dark-mode::before {
+    background: linear-gradient(to top, var(--background-color), transparent);
+}
+
+section img{
+    position: absolute;
+    top: 0;
+    left:0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    pointer-events: none;
+}
+
+section img#moon{
+    mix-blend-mode: screen;
+    width: 30%;
+    position:absolute;
+    left:40%;
+    
+}
+
+section img#mountains{
+    z-index: 10;
+}
+
+#text{
+    position:absolute;
+    right:-550px;
+    color:#ffff;
+    white-space: nowrap;
+    font-size: 7.5vw;
+    z-index:9;
+}
+
+#btn{
+    text-decoration: none;
+    display: inline-block;
+    padding: 8px 30px;
+    border-radius: 40px;
+    background: #ffff;
+    color:black;
+    font-size: 1.5em;
+    z-index:9;
+    transform: translateY(100px);
+}
+#btn:hover{
+    color: white;
+    background-color:black;
+}
+
+.sec{
+    position:relative;
+    padding: 100px;
+    padding-bottom: 0px;
+    background:var(--background-color);
+}
+
+.sec h2{
+    text-align: center;
+    font-size: 3.5em;
+    margin-bottom: 30px;
+    color:#ffff;
+
+}
+
+.sec p{
+    font-size: 1em;
+    color:#ffff;
+}
+
+.image-container {
+    width: 80%;
+    height: 600px;
+    border-radius: 10px;
+    overflow: hidden;
+    filter: brightness(0.5); 
+    transition: filter 0.3s ease;
+    margin-left: 10%;
+    margin-right: 10%;
+    position: relative;
+  }
+  
+  .image-container:hover {
+    filter: brightness(1);
+  }
+  
+  .image-container img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .image-container_solar {
+    width: 80%;
+    height: 300px;
+    border-radius: 10px;
+    overflow: hidden;
+    filter: brightness(0.5); /* Adjust the brightness value as desired */
+    transition: filter 0.3s ease;
+    margin-left: 10%;
+    margin-right: 10%;
+    position: relative;
+  }
+  
+  .image-container_solar:hover {
+    filter: brightness(1);
+  }
+  
+  .image-container_solar img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+h1{
+    font-size: 80px;
+    color: white;
+}
+.text-box{
+position: absolute;
+z-index: 222;
+background: rgba(255, 255, 255, 0.1);
+backdrop-filter: blur(30px);
+padding: 40px;
+border: 1px solid rgba(255, 255, 255, 0.1);
+border-radius: 50px;
+transform: translate(-80px, 50px);
+text-align: center;
+margin-left: 10%;
+margin-bottom: 400px;
+}
+
+.media-icons{
+    margin-top: 450px;
+    position: absolute;
+    margin-bottom: 150px;
+  }
+  
+  .media-icons a{
+    color: #fff;
+    font-size: 2em;
+    margin: 60px;
+  }
+
+.dark-btn{
+    background: #53545c;
+    color:#fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 80px;
+    height: 50px;
+    border-radius: 50px;
+    cursor: pointer;
+}
+
+.dark-btn img{
+    width: 25px;
+}
+
+.dark-btn.active{
+    background-color: #111222;
+}
+
+.quiz-btn{
+    text-decoration: none;
+    display: inline-block;
+    padding: 8px 30px;
+    border-radius: 40px;
+    background: #ffff;
+    color:black;
+    font-size: 1.5em;
+    z-index:9;
+    display: inline-block;
+    margin-left:36%;
+}
+.quiz-btn:hover{
+    color: white;
+    background-color: black;
+}
+
+
+
+
+#selected_language{
+    cursor: pointer;
+    line-height: 2;
+    width: 90px;
+    color:#ffff;
+    padding: 7px;
+    
+
+}
+
+
+.menu_language{
+    
+    position: relative;
+}
+.menu_language ul{
+    margin-top:5px ;
+    padding-right: 17px;
+    background-color: #fdf7f790;
+    border: 1px solid cornsilk;
+    box-shadow: 0px 1px 10px rgba(0, 0 0, 0.2);
+    border-radius: 5px;
+    display:none;
+    position: absolute;
+    top:40px;
+    left:0;
+    
+
+}
+
+.menu_language ul li{
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+}
+
+.menu_language ul li a{
+    width: 140px;
+    display:block;
+    padding: 10px;
+    text-decoration: none;
+    color: rgba(12, 12, 12, 0.811);
+    text-align:left;
+}
+
+
+
+.menu_language:hover ul{
+    display:block;
+}
+
+.menu_language:hover ul li a{
+    border-radius: 0;   
+}
+
+#flag{
+    margin-right:5px;
+    position: relative;
+    top:6px;
+}
+
+#flag_br{
+    margin-right: 3px;
+    position: relative;
+    top:6px
+}
+
+:root {  
+    --purple: rgb(123, 31, 162);
+    --violet: rgb(103, 58, 183);
+    --pink: rgb(244, 143, 177);
+  }
+  
+  @keyframes background-pan {
+    from {
+      background-position: 0% center;
+    }
+    
+    to {
+      background-position: -200% center;
+    }
+  }
+  
+  @keyframes scale {
+    from, to {
+      transform: scale(0);
+    }
+    
+    50% {
+      transform: scale(1);
+    }
+  }
+  
+  @keyframes rotate {
+    from {
+      transform: rotate(0deg);
+    }
+    
+    to {
+      transform: rotate(180deg);
+    }
+  }
+  
+  h1 > .magic {
+    display: inline-block;
+    position: relative;
+  }
+  
+  h1 > .magic > .magic-star {
+    --size: clamp(20px, 1.5vw, 30px);
+    
+    animation: scale 700ms ease forwards;
+    display: block;
+    height: var(--size);
+    left: var(--star-left);
+    position: absolute;
+    top: var(--star-top);
+    width: var(--size);
+  }
+  
+  h1 > .magic > .magic-star > svg {
+    animation: rotate 1000ms linear infinite;
+    display: block;
+    opacity: 0.7;
+  }
+  
+  h1 > .magic > .magic-star > svg > path {
+    fill: var(--violet);
+  }
+  
+  h1 > .magic > .magic-text {
+    animation: background-pan 3s linear infinite;
+    background: linear-gradient(
+      to right,
+      var(--purple),
+      var(--violet),
+      var(--pink),
+      var(--purple)
+    );
+    background-size: 200%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    white-space: nowrap;
+  }

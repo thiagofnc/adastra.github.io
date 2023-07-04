@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="about_us.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <script src="https://unpkg.com/scrollreveal"></script>
+</head>
+<body>
+    
+</body>
+</html>
+<header>
+    <a data-value = "Ad Astra" href="jap.html" class="logo">Ad Astra</a>
+    <ul>
+        <li><a href="jap.html"> 始める</a></li>
+        <li><a href="contact_jap.html">コンタクト</a></li>
+        <li><a href="about_jap.html" class="active">私たちに関しては
+        </a></li>
+        <li>
+            <div class="menu_language">
+                <div id="selected_language">
+                    言語
+                </div>
+                <ul>
+                    <li>
+                        <a href="about_port.html" class="Br"><img src="https://flagsapi.com/BR/flat/24.png" id="flag_br">ポルトガル語</a>
+                    </li>
+                    <li>
+                        <a class="Us" href="about_us.html"><img src="https://flagsapi.com/US/flat/24.png" id="flag">英語</a>
+                    </li>
+                    <li>
+                        <a class="Jp" href="about_jap.html"><img src="https://flagsapi.com/JP/flat/24.png" id="flag">日本</a>
+                    </li>
+                </ul>
+            </div>
+            
+    </ul>
+</header>
+
+<div class="thank_u">
+    <h1>こんにちは！ こちらをフォローしていただきありがとうございます！
+    </h1>
+    <h2>この Web サイトのページは、Cruzeiro do Sul Unipê 大学のコンピュータ サイエン<br>
+        ス コースの学生である新入生の愛好家のグループによってデザインされました。
+
+        <br>
+    </h2>
+    <h2>
+        私たちは情熱と献身をもって、訪問者を魅了し、 <br>
+        交流できる体験を生み出すために協力しました。
+
+        
+    </h2>
+    <h2>テーマとしては、一般の人にとって興味深いものであると同時に、グループメン <br> バー全員が興味を惹かれるテー<br>
+        マであることからこの空間を選びました。
+    </h2>
+    <h2>私たちの目標は、有益で楽しい方法で知識を共有することです。
+
+        <br>私たちは、新しいことを学ぶことは楽しいものであると信じており、その考えを反映したコンテンツを提供するよう努めています。 魅力的な最新情報をお楽しみに！
+
+    <h2>
+        メンバー： チアゴ・コスタ、ガブリエレ・ルセナ、ブルーノ・カヴァルカンテ、ミゲル・ヴィエイラ、ケイキ・ミゲル、ルイス・ラマーリョ、カミラ・カタラーノ。
+
+    </h2>
+    <div class="media-icons">
+        <a href="https://www.facebook.com/RickAstley/?locale=pt_BR" target="blank" class="icon"><i class="fab fa-facebook"></i></a>
+        <a href="https://www.instagram.com/officialrickastley/" target="blank" class="icon"><i class="fab fa-instagram"></i></a>
+        <a href="https://twitter.com/rickastley" target="blank" class="icon"><i class="fab fa-twitter"></i></a>
+        <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ&pp=ygUXbmV2ZXIgZ29ubmEgZ2l2ZSB5b3UgdXA%3D" target="blank" class="icon"><i class="fab fa-youtube"></i></a>
+    </div>
+</div>
+<script>
+    ScrollReveal({
+      distance: '60px',
+      duration: 1000,
+      delay: 100
+    });
+
+    ScrollReveal().reveal('.thank_u', { delay: 500, origin: 'bottom' });
+    ScrollReveal().reveal('.media-icons', { delay: 500, origin: 'left' });
+
+    const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+
+        let interval = null;
+
+        const logo = document.querySelector(".logo");
+
+        function applyEffect(element) {
+            let iteration = 0;
+            clearInterval(element.interval);
+
+            element.interval = setInterval(() => {
+                element.innerText = element.innerText
+                    .split("")
+                    .map((letter, index) => {
+                        if (index < iteration) {
+                            return element.dataset.value[index];
+                        }
+
+                        return letters[Math.floor(Math.random() * 26)];
+                    })
+                    .join("");
+
+                if (iteration >= element.dataset.value.length) {
+                    clearInterval(element.interval);
+                }
+
+                iteration += 1 / 3;
+            }, 30);
+        }
+
+        document.addEventListener("DOMContentLoaded", () => {
+            applyEffect(logo);
+        });
+
+        logo.addEventListener("mouseover", () => {
+            applyEffect(logo);
+        });
+</script>

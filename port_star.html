@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="ad_astra2.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        .page {
+            position: absolute;
+            width: 100vw;
+            height: 100vh;
+            z-index: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .usage {
+            position: absolute;
+            top: 40px;
+            line-height: 50px;
+            z-index: 1000;
+            color: white;
+            font-size: 20px;
+            width: 100%;
+            text-align: center;
+            pointer-events: none;
+            margin-top: 40%;
+            user-select: none;
+        }
+
+        h1 {
+            color: white;
+            font-weight: bold;
+            font-size: 6em;
+            text-align: center;
+            user-select: none;
+        }
+    </style>
+</head>
+<header>
+    <a data-value="Ad Astra" href="port.html" class="logo">Ad Astra</a>
+    <ul>
+        <li><a href="port.html" class="active">Início</a></li>
+        <li><a href="contact_port.html">Contato</a></li>
+        <li><a href="about_port.html">Sobre Nós</a></li>
+        <li>
+            <div class="menu_language">
+                <div id="selected_language">
+                    Idioma
+                </div>
+                <ul>
+                    <li>
+                        <a href="port.html" class="Br"><img src="https://flagsapi.com/BR/flat/24.png" id="flag_br">Português</a>
+                    </li>
+                    <li>
+                        <a class="Us" href="ad_astra_home.html"><img src="https://flagsapi.com/US/flat/24.png" id="flag">Inglês</a>
+                    </li>
+                    <li>
+                        <a class="Jp" href="jap.html"><img src="https://flagsapi.com/JP/flat/24.png" id="flag">Japonês</a>
+                    </li>
+                </ul>
+            </div>
+        </li>
+    </ul>
+</header>
+<body>
+    <div class="page" style="background-color:#484889">
+        <h1>MAIS</h1>
+    </div>
+    <div class="page" style="background-color:#5f78a0">
+        <h1>CONTEÚDO</h1>
+    </div>
+    <div class="page" style="background-color:#306896">
+        <h1>LOGO!</h1>
+    </div>
+    <div class="page" style="background-color:#282498">
+        <h1>MAIS<br>CONTEÚDO<br>LOGO!</h1>
+    </div>
+
+    <p class="usage">Clique em qualquer lugar da tela</p>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+
+    <script>
+        $('.page').each(function (i, e) {
+            $(this).click(function (event) {
+                var x = event.pageX;
+                var y = event.pageY;
+
+                var nextItem = i + 1;
+                if (nextItem >= $('.page').length) {
+                    nextItem = 0;
+                }
+
+                $('.page:eq(' + nextItem + ')').css('z-index', parseInt($(this).css('z-index')) + 1);
+                $('.page:eq(' + nextItem + ')').css('clip-path', 'circle(0% at ' + x + 'px ' + y + 'px)');
+
+                anime({
+                    targets: $('.page')[nextItem],
+                    update: function (anim) {
+                        $('.page:eq(' + nextItem + ')').css('clip-path', 'circle(' + (anim.progress * 2) + '% at ' + x + 'px ' + y + 'px)');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>
